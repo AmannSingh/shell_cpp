@@ -39,5 +39,4 @@ int cmd_type(vector<string> args)
     return 1;
   }
 
-  return 2;
 }
