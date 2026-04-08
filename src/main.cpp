@@ -44,7 +44,7 @@ int main()
   {
     cout << "$ ";
     string input; 
-    if(!getline(cin,input)) break;    // ctrl + D exit
+    if(!getline(cin,input)) break;    
     if(input.empty()) continue;       //blank line, re-prompt
     last_exit_status = execute(input);
   }
