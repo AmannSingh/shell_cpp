@@ -6,3 +6,4 @@ using namespace std;
 
 int cmd_exit(vector<string> args);
 int cmd_echo(vector<string> args);
+int cmd_type(vector<string> args);

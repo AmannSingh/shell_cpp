@@ -11,5 +11,6 @@ inline unordered_map< string, function<int(vector<string>)>> command_map =
 {
 
     {"exit", cmd_exit},
-    {"echo", cmd_echo}
+    {"echo", cmd_echo},
+    {"type", cmd_type}
 };

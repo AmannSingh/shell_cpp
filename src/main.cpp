@@ -16,7 +16,7 @@ int execute(string& input)
   string command_name = tokens[0];
 
   auto it = command_map.find(command_name);
-  vector<string> args(tokens.begin() + 1, tokens.end());
+  vector<string> args(tokens.begin() + 1, tokens.end());    // retrieves the args after the command
 
   if(it == command_map.end())
   { 
@@ -30,9 +30,7 @@ int execute(string& input)
 
   return 0;
 }
-// create shell command functions and add them to dictionary 
-//exit
-//echo
+
 
 
 int main() 
