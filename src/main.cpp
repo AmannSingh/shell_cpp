@@ -1,6 +1,6 @@
 #include <iostream>
-#include "command_map.h"
-#include "tokenizer.h"
+#include <shell_cpp/command_map.hpp>
+#include <shell_cpp/tokenizer.hpp> 
 #include <string>
 #include <vector>
 using namespace std;
