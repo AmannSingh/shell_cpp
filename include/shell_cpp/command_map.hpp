@@ -6,9 +6,8 @@
 #include <functional>
 #include "commands.hpp"
 
-using namespace std;
 
-inline unordered_map< string, function<int(vector<string>)>> command_map = 
+inline std::unordered_map<std::string, std::function<int(std::vector<std::string>)>> command_map = 
 {
 
     {"exit", cmd_exit},

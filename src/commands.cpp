@@ -6,28 +6,32 @@
 #include <shell_cpp/command_map.hpp> 
 #include <shell_cpp/utility.hpp>
 
-using namespace std;
 
-int cmd_exit(vector<string> args)
+int cmd_exit(std::vector<std::string> args)
 {
   exit(0);
 }
 
-int cmd_echo(vector<string> args)
+int cmd_echo(std::vector<std::string> args)
 {
-  string str = args[0];
+  if(args.empty())
+  {
+    std::cout << std::endl;
+  }
+
+  std::string str = args[0];
 
   for(auto i = 1; i< args.size(); i++)
   {
     str += " " + args[i];
   }
 
-  cout<< str << endl;
+  std::cout<< str << std::endl;
 
   return 0;
 }
 
-int cmd_type(vector<string> args)
+int cmd_type(std::vector<std::string> args)
 {
   auto it = command_map.find(args [0]);
 
@@ -35,7 +39,7 @@ int cmd_type(vector<string> args)
 
   if(it != command_map.end())
   {
-    cout<<args[0]<<" is a shell built-in"<<endl;
+    std::cout<<args[0]<<" is a shell built-in"<<std::endl;
     return 0;
   }
   else
@@ -45,7 +49,7 @@ int cmd_type(vector<string> args)
     return 0;
   }
   
-  cout<<args[0]<<": not found"<<endl;
+  std::cout<<args[0]<<": not found"<<std::endl;
   return 1;
 
 }

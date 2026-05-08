@@ -3,8 +3,7 @@
 #include <string>
 #include <vector>
 
-using namespace std;
 
-vector<string> tokenize_args(string& input);
-void print_tokens(vector<string> tokens);
+std::vector<std::string> tokenize_args(std::string& input);
+void print_tokens(std::vector<std::string> tokens);
 

@@ -3,24 +3,24 @@
 #include <shell_cpp/tokenizer.hpp> 
 #include <string>
 #include <vector>
-using namespace std;
 
 
-int execute(string& input) 
+int execute(std::string& input) 
 {
 
   //tokenizer 
-  vector<string> tokens = tokenize_args(input);
+  std::vector<std::string> tokens = tokenize_args(input);
   if (tokens.empty()) return 0; 
   
-  string command_name = tokens[0];
+  std::string command_name = tokens[0];
 
   auto it = command_map.find(command_name);
-  vector<string> args(tokens.begin() + 1, tokens.end());    // retrieves the args after the command
+  
+  std::vector<std::string> args(tokens.begin() + 1, tokens.end());    // retrieves the args after the command
 
   if(it == command_map.end())
   { 
-    cerr << input << ": command not found"<<endl;
+    std::cerr << input << ": command not found"<< std::endl;
     return 1;
   }
   else
@@ -36,15 +36,15 @@ int execute(string& input)
 int main() 
 {
   // Flush after every std::cout / std:cerr
-  cout << unitbuf;
-  cerr << unitbuf;  
+  std::cout << std::unitbuf;
+  std::cerr << std::unitbuf;  
   int last_exit_status = 0;
 
   while(true)
   {
-    cout << "$ ";
-    string input; 
-    if(!getline(cin,input)) break;    
+    std::cout << "$ ";
+    std::string input; 
+    if(!std::getline(std::cin,input)) break;    
     if(input.empty()) continue;       //blank line, re-prompt
     last_exit_status = execute(input);
   }

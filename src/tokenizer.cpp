@@ -2,24 +2,23 @@
 #include <string>
 #include <vector>
 
-using namespace std;
 
 // this tokenizer only handles whitespace at the moment 
 // make edits as you go for delimiters. 
 
-void print_tokens(vector<string> tokens)
+void print_tokens(std::vector<std::string> tokens)
 {
     for(auto i = 0; i < tokens.size(); i++ )
     {
-        cout <<"\"" << tokens[i]<< "\"";
+        std::cout <<"\"" << tokens[i]<< "\"";
     }
-    cout<<endl;
+    std::cout<<std::endl;
 }
 
-vector<string> tokenize_args(string& input)
+std::vector<std::string> tokenize_args(std::string& input)
 {
-    vector<string> tokens;
-    string token;
+    std::vector<std::string> tokens;
+    std::string token;
    
     for(size_t i = 0; i < input.size(); i++)
     {

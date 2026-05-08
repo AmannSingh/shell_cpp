@@ -3,8 +3,7 @@
 #include <vector>
 #include <string>
 
-using namespace std;
 
-int cmd_exit(vector<string> args);
-int cmd_echo(vector<string> args);
-int cmd_type(vector<string> args);
+int cmd_exit(std::vector<std::string> args);
+int cmd_echo(std::vector<std::string> args);
+int cmd_type(std::vector<std::string> args);

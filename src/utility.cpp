@@ -5,10 +5,10 @@
 #include <filesystem>
 #include <cstdlib>
 
-using namespace std;
 
+namespace fs = std::filesystem;
 
-filesystem::path find_in_path (string filename)
+fs::path find_in_path (std::string filename)
 {
 
     const char* env_p = getenv("PATH");
@@ -17,8 +17,8 @@ filesystem::path find_in_path (string filename)
       return ""; 
     }
    
-    string str_env_p(env_p);
-    stringstream ss(str_env_p);
+    std::string str_env_p(env_p);
+    std::stringstream ss(str_env_p);
    
     #ifdef _WIN32
         char delimiter = ';';
@@ -26,11 +26,11 @@ filesystem::path find_in_path (string filename)
         char delimiter = ":";
     #endif
 
-    string dir;
+    std::string dir;
 
-    while(getline(ss, dir, delimiter));     //iterate through each directory that is seperated by the delimiter
+    while(getline(ss, dir, delimiter))    //iterate through each directory that is seperated by the delimiter
     {
-       for(auto &entry : filesystem::recursive_directory_iterator(dir))
+       for(auto &entry : fs::recursive_directory_iterator(dir))
        {
          if(entry.path().filename().stem() == filename)
          {
