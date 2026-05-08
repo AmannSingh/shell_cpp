@@ -17,11 +17,12 @@ int cmd_echo(std::vector<std::string> args)
   if(args.empty())
   {
     std::cout << std::endl;
+    return 0;
   }
 
   std::string str = args[0];
 
-  for(auto i = 1; i< args.size(); i++)
+  for(int i = 1; i< args.size(); i++)
   {
     str += " " + args[i];
   }
@@ -33,6 +34,12 @@ int cmd_echo(std::vector<std::string> args)
 
 int cmd_type(std::vector<std::string> args)
 {
+  if(args.size()<1)
+  {
+    std::cerr << "type: missing arguments" << std::endl;
+    return 0;
+  }
+
   auto it = command_map.find(args [0]);
 
   //check if command is in command map

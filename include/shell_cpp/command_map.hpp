@@ -6,7 +6,6 @@
 #include <functional>
 #include "commands.hpp"
 
-
 inline std::unordered_map<std::string, std::function<int(std::vector<std::string>)>> command_map = 
 {
 

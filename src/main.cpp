@@ -15,8 +15,6 @@ int execute(std::string& input)
   std::string command_name = tokens[0];
 
   auto it = command_map.find(command_name);
-  
-  std::vector<std::string> args(tokens.begin() + 1, tokens.end());    // retrieves the args after the command
 
   if(it == command_map.end())
   { 
@@ -25,10 +23,13 @@ int execute(std::string& input)
   }
   else
   {
-    return it->second(args);
+  
+    std::vector<std::string> args(tokens.begin() + 1, tokens.end());         // retrieves the args after the command
+    return it->second(args);    
+    
   }
 
-  return 0;
+  return 1;
 }
 
 
